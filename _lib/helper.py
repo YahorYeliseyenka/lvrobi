@@ -1,3 +1,4 @@
+import os
 import unicodedata
 
 from math import sin, cos, sqrt, atan2, radians
@@ -51,3 +52,16 @@ def val2utf8(value):
     if normalized.replace('-', '') == '':
         normalized = float('nan')
     return normalized
+
+
+def get_file_paths(dpath, format, includes=[]):
+    fpaths = []
+    for (dirpath, dirnames, filenames) in os.walk(dpath):
+        for file in filenames:
+            if file.endswith(format):
+                if includes != [] and not any(fname in file for fname in includes):
+                    continue
+                fpaths.append(os.path.join(dirpath, file))
+    fpaths.sort()
+    
+    return fpaths
