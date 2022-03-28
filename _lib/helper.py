@@ -2,6 +2,7 @@ import os
 import unicodedata
 
 from math import sin, cos, sqrt, atan2, radians
+from os import path
 
 
 def distance(x1, y1, x2, y2):
@@ -54,9 +55,9 @@ def val2utf8(value):
     return normalized
 
 
-def get_file_paths(dpath, format, includes=[]):
+def get_filepaths(dirpath, format, includes=[]):
     fpaths = []
-    for (dirpath, dirnames, filenames) in os.walk(dpath):
+    for (dirpath, dirnames, filenames) in os.walk(dirpath):
         for file in filenames:
             if file.endswith(format):
                 if includes != [] and not any(fname in file for fname in includes):
@@ -65,3 +66,8 @@ def get_file_paths(dpath, format, includes=[]):
     fpaths.sort()
     
     return fpaths
+
+
+def mkdir(dirpath):
+    if not path.exists(dirpath):
+        os.mkdir(dirpath)
