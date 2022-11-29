@@ -1,5 +1,4 @@
-# lvrobi
-Learning Vector Representations of Bicycle Itineraries
+# Learning Vector Representations of Bicycle Itineraries
 
 Over the past ten years, bicycles have become an increasingly attractive transport
 and leisure activity mode. As the number of cyclists tends to increase, there is a need
